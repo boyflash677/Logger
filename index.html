@@ -2,106 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>System Override</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    body {
-      margin: 0;
-      background-color: black;
-      color: lime;
-      font-family: monospace;
-      font-size: 16px;
-      overflow: hidden;
-    }
-    #terminal {
-      white-space: pre-wrap;
-      padding: 20px;
-    }
-    .redscreen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: red;
-      z-index: 9999;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      color: white;
-      text-align: center;
-    }
-    .btn {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: white;
-      color: black;
-      font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All-in-One Tools - VIPIN</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="terminal"></div>
+  <div class="container">
+    <h1>👨‍💻 All-in-One Useful Tools</h1>
 
-  <div class="redscreen" id="redscreen">
-    <h1>🔴 SYSTEM OVERRIDE DETECTED</h1>
-    <p>System breach complete. You're being watched 👁</p>
-    <a href="https://www.instagram.com/vipin_txt?igsh=b2s2dzljbDZqcmxy" class="btn">👨‍💻 Meet the Developer</a>
+    <div class="tool-grid">
+      <a href="https://instadp.io/" target="_blank">🔍 Insta DP Viewer</a>
+      <a href="https://storysaver.net/" target="_blank">📖 Story Saver</a>
+      <a href="https://igram.io/en/" target="_blank">🎬 Reels Downloader</a>
+      <a href="https://hashtagify.me/" target="_blank">🏷️ Hashtag Generator</a>
+      <a href="https://tools.wmflabs.org/usernamecheck/" target="_blank">🧠 Username Checker</a>
+      <a href="#" onclick="sendIP()">📍 Check My IP</a>
+      <a href="https://tinyurl.com/" target="_blank">🔗 URL Shortener</a>
+      <a href="https://emojicombos.com/" target="_blank">😀 Text to Emoji</a>
+      <a href="https://youtubethumbnailimage.com/" target="_blank">🖼️ YT Thumbnail Downloader</a>
+      <a href="https://www.qr-code-generator.com/" target="_blank">📱 QR Code Generator</a>
+      <a href="https://temp-mail.org/" target="_blank">📧 Temp Mail</a>
+      <a href="https://convertio.co/" target="_blank">🧾 File Converter</a>
+      <a href="https://sendanonymoussms.com/" target="_blank">📨 Fake SMS</a>
+      <a href="https://passwordsgenerator.net/" target="_blank">🔐 Password Generator</a>
+      <a href="https://batteryuniversity.com/" target="_blank">🔋 Battery Checker</a>
+      <a href="https://y2mate.guru/en68/" target="_blank">🎥 YouTube Downloader</a>
+      <a href="https://privnote.com/" target="_blank">🗒️ Notes Locker</a>
+      <a href="https://freeformatter.com/html-formatter.html" target="_blank">💻 Code Formatter</a>
+      <a href="https://www.online-stopwatch.com/" target="_blank">⏱️ Stopwatch</a>
+      <a href="https://wheelofnames.com/" target="_blank">🎡 Decision Picker</a>
+    </div>
+
+    <div class="footer">
+      <a href="https://www.instagram.com/vipin_txt?igsh=b2s2dzljbDZqcmxy" target="_blank">👨‍💻 Meet the Developer (VIPIN)</a>
+    </div>
   </div>
 
-  <audio id="scream" src="https://www.soundjay.com/human/sounds/scream-01.mp3"></audio>
-
-  <script>
-    const lines = [
-      "Initializing system kernel...",
-      "Checking boot integrity...",
-      "✔️ Boot loader found",
-      "📡 IP traced: 192.168.1.66",
-      "Accessing camera... ✅",
-      "Accessing mic... ✅",
-      "Uploading photos to dark web...",
-      "⚠️ Malware injected: Android.Backdoor.Agent",
-      "Instagram cloned to: vipin_clone_839",
-      "Accessing saved passwords...",
-      "🔐 OTP sync enabled",
-      "Reading chats... Telegram, WhatsApp, Instagram",
-      "📴 Remote wipe in progress...",
-      "🔴 LOCKDOWN MODE ENABLED!",
-      "Ghost detected nearby using infrared sensor...",
-      "💀 SYSTEM OVERRIDE IN 3...",
-      "💀 SYSTEM OVERRIDE IN 2...",
-      "💀 SYSTEM OVERRIDE IN 1..."
-    ];
-
-    const terminal = document.getElementById("terminal");
-    const redscreen = document.getElementById("redscreen");
-    const scream = document.getElementById("scream");
-
-    let i = 0;
-    function showLine() {
-      if (i < lines.length) {
-        terminal.innerHTML += lines[i] + "\n";
-        window.scrollTo(0, document.body.scrollHeight);
-        i++;
-        navigator.vibrate(200);
-        setTimeout(showLine, 1000);
-      } else {
-        triggerRedScreen();
-      }
-    }
-
-    function triggerRedScreen() {
-      redscreen.style.display = "flex";
-      scream.play();
-      document.body.style.backgroundColor = "red";
-      navigator.vibrate([500, 200, 500, 200, 1000]);
-    }
-
-    window.onload = showLine;
-  </script>
+  <script src="scripts.js"></script>
 </body>
-</html>￼Enter
+</html>
